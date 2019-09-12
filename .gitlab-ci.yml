@@ -6,7 +6,6 @@ tests:
   stage: unittests
   script:
     - apk update
-    - apk add python3 postgresql-libs
     - apk add --update --no-cache --virtual .build-deps alpine-sdk python3-dev musl-dev postgresql-dev libffi-dev
     - pip3 install -U setuptools pip
     - pip3 install --no-cache-dir -r requirements.txt
@@ -16,9 +15,7 @@ pypi_build:
   stage: build
   script:
     - apk update
-    - apk add python3 postgresql-libs
     - apk add --update --no-cache --virtual .build-deps alpine-sdk python3-dev musl-dev postgresql-dev libffi-dev
-    - pip3 install -U setuptools pip
-    - python setup.py sdist
-    - pip3 install twine
+    - pip3 install -U setuptools pip twine
+    - python3 setup.py sdist
     - twine upload dist/*
