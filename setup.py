@@ -4,7 +4,7 @@ import datetime
 setup(
     name='neptune_resolver_rest',  # How you named your package folder (MyLib)
     packages=['neptune_resolver_rest'],  # Chose the same as "name"
-    version=datetime.datetime.now().strftime('%y%m%d%H%M'),  # Start with a small number and increase it with every change you make
+    version=datetime.datetime.now(tz=datetime.timezone.utc).strftime('%Y.%m.%d.%H%M'),  # Start with a small number and increase it with every change you make
     license='MIT',  # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     description='HTTP Request based resolver',  # Give a short description about your library
     author='Yury (Yurzs)',  # Type in your name
