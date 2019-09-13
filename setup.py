@@ -1,17 +1,18 @@
 from distutils.core import setup
 import datetime
 
-from os import path
-this_directory = path.abspath(path.dirname(__file__))
-with open('README.md', encoding='utf-8') as f:
-    long_description = f.read()
+try:
+    with open('README.md', 'r', encoding='utf-8') as f:
+        long_description = f.read()
+except FileNotFoundError:
+    long_description = ''
 
 setup(
     name='neptune_resolver_rest',  # How you named your package folder (MyLib)
     packages=['neptune_resolver_rest'],  # Chose the same as "name"
     version=datetime.datetime.now(tz=datetime.timezone.utc).strftime('%Y.%m.%d.%H%M'),  # Start with a small number and increase it with every change you make
     license='MIT',  # Chose a license from here: https://help.github.com/articles/licensing-a-repository
-    long_description=long_description,
+    long_description=long_description ,
     long_description_content_type='text/markdown',
     description='HTTP Request based resolver for NEPTUNE DNS SERVER',  # Give a short description about your library
     author='Yury (Yurzs)',  # Type in your name
