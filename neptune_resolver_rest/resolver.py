@@ -1,6 +1,6 @@
 import json
 import aiohttp
-
+import ssl
 
 class Resolver:
 
@@ -9,7 +9,7 @@ class Resolver:
 
     async def find(self, type: int, cls: int, name: str) -> dict:
         async with aiohttp.ClientSession() as session:
-            async with session.get(self.connection.base_url + f'{type}/{cls}/{name}/') as resp:
+            async with session.get(self.connection.base_url + f'{type}/{cls}/{name}/', ssl=ssl.SSLContext()) as resp:
                 if resp.status == 200:
                     return json.loads(await resp.text())
                 raise Exception(

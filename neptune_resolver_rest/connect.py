@@ -14,6 +14,7 @@ class Connection:
         self.password = password
         self.Resolver = Resolver(self)
 
+
     async def init_connection(self) -> None:
         pass
 
