@@ -1,6 +1,7 @@
 import json
 import aiohttp
 
+
 class Resolver:
 
     def __init__(self, connection):
