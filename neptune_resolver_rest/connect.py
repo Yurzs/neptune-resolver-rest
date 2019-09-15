@@ -1,7 +1,4 @@
-import json
-
 import aiohttp
-
 from .resolver import Resolver
 
 
@@ -16,9 +13,8 @@ class Connection:
         self.base_url = base_url
         self.username = username
         self.password = password
-        self._session = aiohttp.ClientSession()
         self.Resolver = Resolver(self)
-
 
     async def init_connection(self) -> None:
         pass
+
